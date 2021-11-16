@@ -10,42 +10,37 @@ namespace HW1
     {
         static void Main(string[] args)
         {
-            Physics physics = Physics.Instance;
-            Console.WriteLine(physics.Gravity);
-            Console.WriteLine(physics.CheckCollision());
+            MotherBoard mom = MotherBoard.Instance;
+            Console.WriteLine(mom.firmWare);
+            Console.WriteLine(mom.year);
+            mom.SelfDestruct();
         }
     }
 
-    public class Physics
+    public class MotherBoard
     {
 
-        private static Physics instance;
-        private Physics() { }
+        private static MotherBoard instance;
+        private MotherBoard() { }
 
-        public static Physics Instance
+        public static MotherBoard Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new Physics();
+                    instance = new MotherBoard();
                 }
                 return instance;
             }
         }
 
-        public float Gravity = 9.807f;
+        public int year = 2014;
+        public string firmWare = "GIGABYTE";
 
-        public bool CheckCollision()
+        public void SelfDestruct()
         {
-            if (true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            Console.WriteLine("Killing Myself Right Now...");
         }
     }
 }
